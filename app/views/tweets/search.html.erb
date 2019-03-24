@@ -1,2 +1,24 @@
-<h1>Tweets#search</h1>
+<h1>ハッシュタグを指定してツイートを検索</h1>
+
+<div id="search-box">
+    <%= form_tag('/tweets/search', method: :get) do %>
+        <label>#</label>
+        <%= text_field_tag :tweet, nil,  id: "tweet_search", name: "keyword", placeholder: "キーワードを入力してください", style: "width: 200px;"%><button title="検索" type="submit">検索</button>
+    <% end %>
+  </div>
+</div>
+
+<div id='tweet_list'>
+    <% if @tweets.present? %>
+        <h2>検索結果</h2>
+        <ul>
+            <% @tweets.each_with_index do |tweet, i| %>
+                <div class="list">
+                    <li><%= tweet.contents %></li>
+                </div>
+            <% end %>
+        </ul>
+    <% end %>
+</div>
+
 <%= link_to 'お気に入りツイート画面', favorite_tweet_path %>
