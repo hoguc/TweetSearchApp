@@ -11,21 +11,18 @@
 <div id='tweet_list'>
     <% if @tweets.present? %>
         <h2>検索結果</h2>
+        <p>♡ボタンを押すとお気に入り登録できます</p>
         <table border="1" cellpadding="10">
-        <thread>
-            <tr>
-                <th>ツイート</th>
-            </tr>
-        </thread>
         <tbody>
         <% @tweets.each_with_index do |tweet, i| %>
             <tr>
-                <td><%= tweet.contents %></td>
+                <td width="2000"><%= tweet.contents %></td>
+                <td><button type="submit"><i class="material-icons red">favorite_border</i></button></td>
             </tr>
         <% end %>
         </tbody>
         </table>
+        <%= paginate @tweets %>
     <% end %>
 </div>
 
-<%= link_to 'お気に入りツイート画面', favorite_tweet_path %>

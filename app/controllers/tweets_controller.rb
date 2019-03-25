@@ -17,9 +17,7 @@ class TweetsController < ApplicationController
         tweet = Tweet.new(tw.full_text)
         @tweets << tweet
       end
+      @tweets = Kaminari.paginate_array(@tweets).page(params[:page]).per(10)      
     end
-  end
-
-  def favorite
   end
 end
