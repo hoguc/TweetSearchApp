@@ -11,13 +11,20 @@
 <div id='tweet_list'>
     <% if @tweets.present? %>
         <h2>検索結果</h2>
-        <ul>
-            <% @tweets.each_with_index do |tweet, i| %>
-                <div class="list">
-                    <li><%= tweet.contents %></li>
-                </div>
-            <% end %>
-        </ul>
+        <table border="1" cellpadding="10">
+        <thread>
+            <tr>
+                <th>ツイート</th>
+            </tr>
+        </thread>
+        <tbody>
+        <% @tweets.each_with_index do |tweet, i| %>
+            <tr>
+                <td><%= tweet.contents %></td>
+            </tr>
+        <% end %>
+        </tbody>
+        </table>
     <% end %>
 </div>
 

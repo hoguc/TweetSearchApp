@@ -54,5 +54,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'twitter'
-
 gem 'kaminari'
+gem 'kaminari-i18n'
+gem 'jquery-rails'
+gem 'material_icons'

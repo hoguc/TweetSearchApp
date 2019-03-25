@@ -1,4 +1,5 @@
 class Tweet < ApplicationRecord
+
   # プロパティの設定
   attr_accessor :contents
 
