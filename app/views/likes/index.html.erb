@@ -1,0 +1,25 @@
+<%= link_to 'ログアウト', index_home_path %>
+
+<h1>お気に入りツイート一覧</h1>
+<p>×ボタンでお気に入りから削除します。</p>
+
+<%= link_to 'ツイート検索画面', search_tweet_path %>
+
+<% if @likes.present? %>
+    <%= form_tag(destroy_likes_path, method: :post) do %>
+    <table border="1">
+    <tbody>
+        <% @likes.each do |like| %>
+            <tr>
+                <td><%= like.liketweet %></td>
+                <td><button type="submit" name= "liketweet" value= "<%= like.liketweet %>"><i class="material-icons red">clear</i></button></td>
+            </tr>
+        <% end %>
+    </tbody>
+    <%= paginate @likes %>
+    </table>
+    <% end %>
+<% else %>
+    <p>お気に入りツイートが存在しません</p>
+<% end %>
+

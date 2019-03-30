@@ -1,4 +1,8 @@
+<%= link_to 'ログアウト', index_home_path %>
+
 <h1>ハッシュタグを指定してツイートを検索</h1>
+
+<%= link_to 'お気に入りツイート画面', index_like_path %>
 
 <div id="search-box">
     <%= form_tag('/tweets/search', method: :get) do %>
@@ -12,18 +16,19 @@
     <% if @tweets.present? %>
         <h2>検索結果</h2>
         <p>♡ボタンを押すとお気に入り登録できます</p>
+        <%= form_tag('/likes/create', method: :post) do %>
         <table border="1" cellpadding="10">
         <tbody>
-        <% @tweets.each_with_index do |tweet, i| %>
-            <tr>
-                <td width="2000"><%= tweet.contents %></td>
-                <%= form_tag('/likes/create', method: :post) do %>
+            <% @tweets.each_with_index do |tweet, i| %>
+                <tr>
+                    <td width="2000"><%= tweet.contents %></td>
                     <td><button type="submit" name="liketweet" value= "<%= tweet.contents %>"><i class="material-icons red">favorite_border</i></button></td>
-                <% end %>
-            </tr>
-        <% end %>
+                </tr>
+            <% end %>
         </tbody>
+        <%= paginate @tweets %>
         </table>
+        <% end %>
     <% end %>
 </div>
 
