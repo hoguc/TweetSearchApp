@@ -1,9 +1,14 @@
-<%= link_to 'ログアウト', index_home_path %>
+<header>
+  <body>
+      <ul>
+          <li><%= link_to 'ログアウト', index_home_path %></li>
+          <li><%= link_to 'ツイート検索画面', top_tweets_path %></li>
+      </ul>
+  </body>
+</header>
 
 <h1>お気に入りツイート一覧</h1>
 <p>×ボタンでお気に入りから削除します。</p>
-
-<%= link_to 'ツイート検索画面', top_tweets_path %>
 
 <% if @likes.present? %>
     <%= form_tag(destroy_likes_path, method: :post) do %>
