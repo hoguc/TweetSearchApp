@@ -1,4 +1,7 @@
 class TweetsController < ApplicationController
+  def top
+  end
+
   def search
     client = Twitter::REST::Client.new do |config|
     config.consumer_key    = "tw3XTI4e5XSyg3dCqFeJXlIDJ"
