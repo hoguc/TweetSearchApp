@@ -23,5 +23,5 @@ twitterのハッシュタグを検索し、該当したツイートを表示、�
   表示された×ボタンでお気に入りを解除できます。  
   
 #技術情報  
-・twitter認証機能（devise + omniauth）  
+・twitterログイン機能（devise + omniauth）  
 ・ページネーション機能（kaminari）  
