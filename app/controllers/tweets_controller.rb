@@ -3,10 +3,17 @@ class TweetsController < ApplicationController
   end
 
   def search
+    Dotenv.load
+
     client = Twitter::REST::Client.new do |config|
-    config.consumer_key    = "tw3XTI4e5XSyg3dCqFeJXlIDJ"
-    config.consumer_secret = "C8cydZbb38RRgzFkfLQc0OrO8uZ9LRatLU9uZ2bYt6yjxpzFum"
+      config.consumer_key    = ENV['TWITTER_API_KEY']
+      config.consumer_secret = ENV['TWITTER_SECRET_KEY']
     end
+
+    puts ENV['TWITTER_API_KEY']
+    puts ENV['TWITTER_SECRET_KEY']
+    puts config.consumer_key
+    puts config.consumer_secret
 
     @tweets = []
     since_id = nil
