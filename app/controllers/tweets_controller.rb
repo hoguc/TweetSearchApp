@@ -10,11 +10,6 @@ class TweetsController < ApplicationController
       config.consumer_secret = ENV['TWITTER_SECRET_KEY']
     end
 
-    puts ENV['TWITTER_API_KEY']
-    puts ENV['TWITTER_SECRET_KEY']
-    puts config.consumer_key
-    puts config.consumer_secret
-
     @tweets = []
     since_id = nil
 
